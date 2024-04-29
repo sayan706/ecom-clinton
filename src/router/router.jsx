@@ -12,6 +12,9 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import Page404 from "../components/Page404";
 import { ProtectedRoute } from "./ProtectedRoute";
+import Account from "../components/account";
+import Addresses from "../components/account/Addresses";
+import Orders from "../components/account/Orders";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +23,12 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
+
+      <Route path="account">
+        <Route index element={<Account />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="addresses" element={<Addresses />} />
+      </Route>
 
       {/* we want to protect these routes */}
       <Route element={<ProtectedRoute />}>
